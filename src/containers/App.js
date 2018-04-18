@@ -8,6 +8,7 @@ import {
 
 import Login from "./login";
 import Home from "./home";
+import UserProfile from "./user-profile";
 
 class App extends Component {
     render() {
@@ -17,6 +18,11 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/login" component={Login} />
+                        <Route
+                            exact
+                            path="/user-profile"
+                            component={UserProfile}
+                        />
                     </Switch>
                 </div>
             </Router>
