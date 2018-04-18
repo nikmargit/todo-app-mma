@@ -1,10 +1,5 @@
 import React from "react";
-import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Switch
-} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class Login extends React.Component {
     ADMIN = "a@x.com";

@@ -40,6 +40,11 @@ class App extends Component {
         this.setState(user);
     };
 
+    signout() {
+        window.localStorage.removeItem("user");
+        this.setState({ isAuthenticated: false });
+    }
+
     render() {
         return (
             <Router>
@@ -50,6 +55,7 @@ class App extends Component {
                             path="/"
                             component={Home}
                             isAuthenticated={this.state.isAuthenticated}
+                            signout={this.signout}
                         />
                         <Route
                             exact
@@ -73,13 +79,18 @@ class App extends Component {
     }
 }
 
-const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => {
+const PrivateRoute = ({
+    component: Component,
+    signout,
+    isAuthenticated,
+    ...rest
+}) => {
     return (
         <Route
             {...rest}
             render={props =>
                 isAuthenticated ? (
-                    <Component {...props} />
+                    <Component {...props} signout={signout} />
                 ) : (
                     <Redirect
                         to={{
