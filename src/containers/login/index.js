@@ -1,8 +1,14 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Route,
+    Redirect,
+    Switch
+} from "react-router-dom";
 
 class Login extends React.Component {
-    ADMIN = "admin@xxx.com";
-    PASS = "123456";
+    ADMIN = "a@x.com";
+    PASS = "123";
     state = {
         email: "",
         password: ""
@@ -19,12 +25,18 @@ class Login extends React.Component {
             this.state.email === this.ADMIN &&
             this.state.password === this.PASS
         ) {
-            console.log("in");
+            console.log("login");
+            this.props.authenticate();
         }
         event.preventDefault();
     };
 
     render() {
+        if (this.props.isAuthenticated) {
+            console.log("redire");
+
+            return <Redirect to={"/"} />;
+        }
         return (
             <div>
                 <h1>Login</h1>

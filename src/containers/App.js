@@ -10,14 +10,57 @@ import Login from "./login";
 import Home from "./home";
 import UserProfile from "./user-profile";
 
+const getLocalStorage = () => {
+    const userString = window.localStorage.getItem("user");
+
+    if (!userString) {
+        const initialState = { isAuthenticated: false };
+        console.log(initialState);
+
+        return initialState;
+    } else {
+        const initialState = JSON.parse(userString);
+        return initialState;
+    }
+};
+
 class App extends Component {
+    initialState = getLocalStorage();
+
+    state = this.initialState;
+
+    authenticate = () => {
+        console.log("hi");
+
+        const user = { isAuthenticated: true };
+
+        // postavljanje localStorage-a kada se korisnik uloguje
+        window.localStorage.setItem("user", JSON.stringify(user));
+
+        this.setState(user);
+    };
+
     render() {
         return (
             <Router>
                 <div>
                     <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/login" component={Login} />
+                        <PrivateRoute
+                            exact
+                            path="/"
+                            component={Home}
+                            isAuthenticated={this.state.isAuthenticated}
+                        />
+                        <Route
+                            exact
+                            path="/login"
+                            render={props => (
+                                <Login
+                                    authenticate={this.authenticate}
+                                    isAuthenticated={this.state.isAuthenticated}
+                                />
+                            )}
+                        />
                         <Route
                             exact
                             path="/user-profile"
@@ -29,5 +72,25 @@ class App extends Component {
         );
     }
 }
+
+const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => {
+    return (
+        <Route
+            {...rest}
+            render={props =>
+                isAuthenticated ? (
+                    <Component {...props} />
+                ) : (
+                    <Redirect
+                        to={{
+                            pathname: "/login",
+                            state: { from: props.location }
+                        }}
+                    />
+                )
+            }
+        />
+    );
+};
 
 export default App;
