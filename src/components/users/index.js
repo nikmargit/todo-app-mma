@@ -1,5 +1,5 @@
 import React from "react";
-import md5 from "md5";
+import User from "../user";
 
 class Users extends React.Component {
     constructor(props) {
@@ -23,23 +23,13 @@ class Users extends React.Component {
         return (
             <div>
                 <h1>Users!!!</h1>
-                {this.state.users.map(user => (
-                    <div key={user.id} style={{ margin: 10, float: "left" }}>
-                        <img
-                            alt={user.email}
-                            src={
-                                "http://www.gravatar.com/avatar/" +
-                                md5(user.email) +
-                                "?" +
-                                "d=monsterid" +
-                                "&" +
-                                "s=30"
-                            }
-                            onClick={() => console.log("img click")}
-                        />
-                        <p>{user.username}</p>
-                    </div>
-                ))}
+                {this.state.users ? (
+                    this.state.users.map(user => (
+                        <User user={user} key={user.id} />
+                    ))
+                ) : (
+                    <p />
+                )}
             </div>
         );
     }
