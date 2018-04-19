@@ -1,5 +1,6 @@
 import React from "react";
 import User from "../user";
+import UserProfile from "../../containers/user-profile";
 import {
     BrowserRouter as Router,
     Route,
@@ -11,7 +12,8 @@ class Users extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: []
+            users: [],
+            redirect: 0
         };
     }
 
@@ -27,10 +29,23 @@ class Users extends React.Component {
 
     userProfile = id => {
         console.log(id);
+        this.setState({ redirect: id });
     };
 
     render() {
-        return (
+        return this.state.redirect ? (
+            <Switch>
+                <Redirect
+                    exact
+                    from="/"
+                    to={{
+                        pathname: "/user-profile",
+                        state: { from: this.props.location }
+                    }}
+                />
+                <Route path="/user-profile" component={UserProfile} />
+            </Switch>
+        ) : (
             <div>
                 <h1>Users!!!</h1>
                 {this.state.users ? (
