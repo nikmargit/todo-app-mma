@@ -1,4 +1,5 @@
 import React from "react";
+import Task from '../task';
 
 class Tasks extends React.Component {
     
@@ -28,20 +29,11 @@ class Tasks extends React.Component {
                 {
                     this.state.todos.map(
                         todo => 
-                            <div key={todo.title}>
-                                <input type="checkbox"/>
-                                <p>{todo.title}</p>
-                                <button>Edit task!</button>
-                                <select>
-                                    <option key={todo.id}>{todo.userId}</option>
-                                </select>
-                                <hr/>
-                            </div>
+                            <Task title={todo.title} id={todo.id} userId={todo.userId} />
                     )
                 }
             </div>
-        ) 
-        
+        )     
     }
 }
 
