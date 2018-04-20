@@ -29,7 +29,7 @@ class Tasks extends React.Component {
                 {
                     this.state.todos.map(
                         todo => 
-                            <Task title={todo.title} id={todo.id} userId={todo.userId} />
+                            <Task key={todo.title} title={todo.title} id={todo.id} userId={todo.userId} />
                     )
                 }
             </div>
