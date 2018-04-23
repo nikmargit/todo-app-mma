@@ -40,10 +40,10 @@ class App extends Component {
         this.setState(user);
     };
 
-    signout() {
+    signout = () => {
         window.localStorage.removeItem("user");
         this.setState({ isAuthenticated: false });
-    }
+    };
 
     render() {
         return (
@@ -85,8 +85,6 @@ const PrivateRoute = ({
     isAuthenticated,
     ...rest
 }) => {
-    console.log("in private route");
-
     return (
         <Route
             {...rest}

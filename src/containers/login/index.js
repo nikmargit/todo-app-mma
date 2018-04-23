@@ -4,23 +4,15 @@ import { Redirect } from "react-router-dom";
 class Login extends React.Component {
     ADMIN = "a@x.com";
     PASS = "123";
-    state = {
-        email: "",
-        password: ""
-    };
-
-    setCredentials = event => {
-        this.setState({
-            [event.currentTarget.name]: event.currentTarget.value
-        });
-    };
 
     logIn = event => {
         if (
-            this.state.email === this.ADMIN &&
-            this.state.password === this.PASS
+            this.emailInput.value === this.ADMIN &&
+            this.passInput.value === this.PASS
         ) {
             this.props.authenticate();
+        } else {
+            console.log("wrong");
         }
         event.preventDefault();
     };
@@ -32,20 +24,18 @@ class Login extends React.Component {
         return (
             <div>
                 <h1>Login</h1>
-                <form>
+                <form onSubmit={this.logIn}>
                     <input
                         type="email"
-                        name="email"
-                        onBlur={this.setCredentials}
+                        ref={input => (this.emailInput = input)}
+                        required
                     />
                     <input
                         type="password"
-                        name="password"
-                        onBlur={this.setCredentials}
+                        ref={input => (this.passInput = input)}
+                        required
                     />
-                    <button type="submit" onClick={this.logIn}>
-                        Log In
-                    </button>
+                    <button type="submit">Log In</button>
                 </form>
             </div>
         );
