@@ -85,6 +85,8 @@ const PrivateRoute = ({
     isAuthenticated,
     ...rest
 }) => {
+    console.log("in private route");
+
     return (
         <Route
             {...rest}

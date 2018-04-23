@@ -20,7 +20,6 @@ class Login extends React.Component {
             this.state.email === this.ADMIN &&
             this.state.password === this.PASS
         ) {
-            console.log("login");
             this.props.authenticate();
         }
         event.preventDefault();
@@ -28,8 +27,6 @@ class Login extends React.Component {
 
     render() {
         if (this.props.isAuthenticated) {
-            console.log("redire");
-
             return <Redirect to={"/"} />;
         }
         return (

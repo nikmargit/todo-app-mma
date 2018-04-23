@@ -1,13 +1,7 @@
 import React from "react";
 import User from "../user";
-import UserProfile from "../../containers/user-profile";
-import {
-    BrowserRouter as Router,
-    Route,
-    Redirect,
-    Switch,
-    withRouter
-} from "react-router-dom";
+
+import { withRouter } from "react-router-dom";
 
 class Users extends React.Component {
     constructor(props) {
