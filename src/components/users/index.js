@@ -5,15 +5,15 @@ import {
     BrowserRouter as Router,
     Route,
     Redirect,
-    Switch
+    Switch,
+    withRouter
 } from "react-router-dom";
 
 class Users extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [],
-            redirect: 0
+            users: []
         };
     }
 
@@ -28,24 +28,17 @@ class Users extends React.Component {
     }
 
     userProfile = id => {
-        console.log(id);
-        this.setState({ redirect: id });
+        return this.props.history.push({
+            pathname: "/user-profile",
+            state: {
+                users: this.state.users,
+                id: id
+            }
+        });
     };
 
     render() {
-        return this.state.redirect ? (
-            <Switch>
-                <Redirect
-                    exact
-                    from="/"
-                    to={{
-                        pathname: "/user-profile",
-                        state: { from: this.props.location }
-                    }}
-                />
-                <Route path="/user-profile" component={UserProfile} />
-            </Switch>
-        ) : (
+        return (
             <div>
                 <h1>Users!!!</h1>
                 {this.state.users ? (
@@ -64,4 +57,4 @@ class Users extends React.Component {
     }
 }
 
-export default Users;
+export default withRouter(Users);

@@ -2,8 +2,6 @@ import React from "react";
 
 class UserProfile extends React.Component {
     state = {
-        id: 1,
-        users: [],
         tasks: [
             {
                 userId: 1,
@@ -38,17 +36,11 @@ class UserProfile extends React.Component {
             }
         ]
     };
-    componentDidMount() {
-        const url = `https://jsonplaceholder.typicode.com/users`;
-        fetch(url)
-            .then(resp => resp.json())
-            .then(users => {
-                this.setState({ users });
-            });
-    }
 
     render() {
-        const user = this.state.users[this.state.id];
+        const user = this.props.location.state.users[
+            this.props.location.state.id - 1
+        ];
 
         return user ? (
             <div>
