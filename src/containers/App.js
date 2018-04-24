@@ -26,7 +26,7 @@ const getLocalStorage = () => {
 
 class App extends Component {
     componentDidMount() {
-        console.log("app mounted");
+        console.log("app mounted!!!!");
         const url = `https://jsonplaceholder.typicode.com/users`;
         fetch(url)
             .then(response => response.json())
@@ -48,8 +48,6 @@ class App extends Component {
     state = this.initialState;
 
     authenticate = () => {
-        console.log("hi");
-
         const user = { isAuthenticated: true };
 
         // postavljanje localStorage-a kada se korisnik uloguje
@@ -63,13 +61,14 @@ class App extends Component {
         this.setState({ isAuthenticated: false });
     };
 
-    handleChange = event => {
-        console.log(event);
+    handleChange = (updatedTodo, key) => {
+        console.log(updatedTodo);
 
-        // let updatedTask = {
-        //     ...this.props.todos,
-        //     [event.currentTarget.name]: event.currentTarget.value
-        // };
+        const todos = [...this.state.todos];
+        todos[key] = updatedTodo;
+        //console.log(todos);
+
+        this.setState({ todos });
     };
 
     render() {

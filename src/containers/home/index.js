@@ -3,6 +3,9 @@ import Tasks from "../../components/tasks";
 import Users from "../../components/users";
 
 class Home extends React.Component {
+    componentDidMount() {
+        console.log("home!!!");
+    }
     render() {
         return (
             <div>

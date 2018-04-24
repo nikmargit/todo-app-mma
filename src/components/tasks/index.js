@@ -8,12 +8,10 @@ class Tasks extends React.Component {
                 <h1>Tasks!!!</h1>
                 <button>Add new task!</button>
                 <hr />
-                {this.props.todos.map(todo => (
+                {this.props.todos.map(task => (
                     <Task
-                        key={todo.title}
-                        title={todo.title}
-                        id={todo.id}
-                        userId={todo.userId}
+                        key={task.id}
+                        task={task}
                         users={this.props.users}
                         todos={this.props.todos}
                         handleChange={this.props.handleChange}
