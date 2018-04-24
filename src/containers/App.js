@@ -25,6 +25,24 @@ const getLocalStorage = () => {
 };
 
 class App extends Component {
+    componentDidMount() {
+        console.log("app mounted");
+        const url = `https://jsonplaceholder.typicode.com/users`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ users: data });
+            });
+
+        const url1 = `https://jsonplaceholder.typicode.com/todos`;
+        fetch(url1)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                this.setState({ todos: data });
+            });
+    }
+
     initialState = getLocalStorage();
 
     state = this.initialState;
@@ -45,6 +63,15 @@ class App extends Component {
         this.setState({ isAuthenticated: false });
     };
 
+    handleChange = event => {
+        console.log(event);
+
+        // let updatedTask = {
+        //     ...this.props.todos,
+        //     [event.currentTarget.name]: event.currentTarget.value
+        // };
+    };
+
     render() {
         return (
             <Router>
@@ -56,6 +83,9 @@ class App extends Component {
                             component={Home}
                             isAuthenticated={this.state.isAuthenticated}
                             signout={this.signout}
+                            users={this.state.users}
+                            todos={this.state.todos}
+                            handleChange={this.handleChange}
                         />
                         <Route
                             exact
@@ -83,6 +113,9 @@ const PrivateRoute = ({
     component: Component,
     signout,
     isAuthenticated,
+    users,
+    todos,
+    handleChange,
     ...rest
 }) => {
     return (
@@ -90,7 +123,13 @@ const PrivateRoute = ({
             {...rest}
             render={props =>
                 isAuthenticated ? (
-                    <Component {...props} signout={signout} />
+                    <Component
+                        {...props}
+                        signout={signout}
+                        users={users}
+                        todos={todos}
+                        handleChange={handleChange}
+                    />
                 ) : (
                     <Redirect
                         to={{

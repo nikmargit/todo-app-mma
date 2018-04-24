@@ -6,8 +6,12 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <Users />
-                <Tasks />
+                <Users users={this.props.users} />
+                <Tasks
+                    users={this.props.users}
+                    todos={this.props.todos}
+                    handleChange={this.props.handleChange}
+                />
             </div>
         );
     }

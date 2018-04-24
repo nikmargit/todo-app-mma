@@ -1,39 +1,28 @@
 import React from "react";
-import Task from '../task';
+import Task from "../task";
 
 class Tasks extends React.Component {
-    
-    constructor(props) {
-            super(props);
-            this.state = {
-                todos: []
-            }
-    }
-
-    componentDidMount() {
-        const url = `https://jsonplaceholder.typicode.com/todos`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                this.setState({todos: data});
-            });
-    }
-
     render() {
-        return (
+        return this.props.todos ? (
             <div>
                 <h1>Tasks!!!</h1>
                 <button>Add new task!</button>
-                <hr/>
-                {
-                    this.state.todos.map(
-                        todo => 
-                            <Task key={todo.title} title={todo.title} id={todo.id} userId={todo.userId} />
-                    )
-                }
+                <hr />
+                {this.props.todos.map(todo => (
+                    <Task
+                        key={todo.title}
+                        title={todo.title}
+                        id={todo.id}
+                        userId={todo.userId}
+                        users={this.props.users}
+                        todos={this.props.todos}
+                        handleChange={this.props.handleChange}
+                    />
+                ))}
             </div>
-        )     
+        ) : (
+            <p />
+        );
     }
 }
 
