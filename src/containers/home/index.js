@@ -2,6 +2,7 @@ import React from "react";
 import Tasks from "../../components/tasks";
 import Users from "../../components/users";
 import NewTask from "../../components/new_task";
+import Header from "../../components/header";
 
 class Home extends React.Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
+                <Header />
                 <Users users={this.props.users} />
                 <NewTask users={this.props.users} />
                 <Tasks
