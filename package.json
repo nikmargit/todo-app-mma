@@ -13,12 +13,12 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "deploy": "npm run build&&gh-pages -d build"
     },
     "devDependencies": {
         "gh-pages": "^1.1.0",
         "md5-hash-webpack-plugin": "^0.1.1"
     },
-    "homepage": "https://nikmargit.github.io/todo-app-mma",
-    "deploy": "npm run build&&gh-pages -d build"
+    "homepage": "https://nikmargit.github.io/todo-app-mma"
 }
