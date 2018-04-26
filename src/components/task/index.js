@@ -15,7 +15,7 @@ class Task extends React.Component {
 
     render() {
         return this.props.users && this.props.todos ? (
-            <div key={this.props.users.id}>
+            <div key={this.props.todos.id} style={{ margin: 10, clear: "both" }}>
                 <input
                     name="completed"
                     type="checkbox"

@@ -2,11 +2,11 @@ import React from "react";
 import Task from "../task";
 
 class Tasks extends React.Component {
+
     render() {
         return this.props.todos ? (
             <div>
                 <h1>Tasks!!!</h1>
-                <button>Add new task!</button>
                 <hr />
                 {this.props.todos.map(task => (
                     <Task
