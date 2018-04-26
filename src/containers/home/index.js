@@ -23,8 +23,8 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <Header />
-                <Users users={this.props.users} />
+                <Header signout={this.props.signout} />
+                <Users users={this.props.users} signout={this.props.signout} />
                 <NewTask users={this.props.users} />
                 <Tasks
                     users={this.props.users}

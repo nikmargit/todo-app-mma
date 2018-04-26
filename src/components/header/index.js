@@ -5,7 +5,7 @@ class Header extends React.Component {
         return (
             <div>
                 <h1>Hello Admin!</h1>
-                <button>Sign out</button>
+                <button onClick={() => this.props.signout()}>Sign out</button>
                 <hr />
             </div>
         );

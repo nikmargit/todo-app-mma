@@ -1,4 +1,6 @@
 import React from "react";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 class UserProfile extends React.Component {
     state = {
@@ -53,6 +55,7 @@ class UserProfile extends React.Component {
                         return <li key={task.id}>{task.title}</li>;
                     })}
                 </ul>
+                <Footer />
             </div>
         ) : (
             <p>Sorry, try again later.</p>
