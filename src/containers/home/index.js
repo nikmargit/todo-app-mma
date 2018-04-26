@@ -3,6 +3,7 @@ import Tasks from "../../components/tasks";
 import Users from "../../components/users";
 import NewTask from "../../components/new_task";
 import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 class Home extends React.Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class Home extends React.Component {
                     todos={this.props.todos}
                     handleChange={this.props.handleChange}
                 />
+                <Footer />
             </div>
         );
     }
