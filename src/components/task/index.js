@@ -37,7 +37,7 @@ class Task extends React.Component {
                     onChange={event => this.updateTask(event)}
                 >
                     {this.props.users.map(user => (
-                        <option value={user.id}>{user.name}</option>
+                        <option value={user.id} key={user.id}>{user.name}</option>
                     ))}
                     ))}
                 </select>

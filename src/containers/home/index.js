@@ -6,19 +6,6 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 
 class Home extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         showComponent: false
-    //     };
-    // }
-
-    // addNewTask(event) {
-    //     console.log("add new task!!!");
-    //     this.setState({
-    //         showComponent: true
-    //     });
-    // }
 
     render() {
         return (

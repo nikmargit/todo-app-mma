@@ -2,17 +2,31 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 class Login extends React.Component {
+
     ADMIN = "a@x.com";
     PASS = "123";
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            showMessage: false
+        };
+    }
 
     logIn = event => {
         if (
             this.emailInput.value === this.ADMIN &&
             this.passInput.value === this.PASS
         ) {
-            this.props.authenticate();
+            this.setState({
+                showMessage: false
+            });
+            this.props.authenticate();      
         } else {
             console.log("wrong");
+            this.setState({
+                showMessage: true
+            });
         }
         event.preventDefault();
     };
@@ -37,6 +51,7 @@ class Login extends React.Component {
                     />
                     <button type="submit">Log In</button>
                 </form>
+                {this.state.showMessage && <p>Wrong email or password! Try again!</p>}
             </div>
         );
     }
