@@ -6,26 +6,26 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 
 class Home extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showComponent: false
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         showComponent: false
+    //     };
+    // }
 
-    addNewTask(event) {
-        console.log("add new task!!!");
-        this.setState({
-            showComponent: true
-        });
-    }
+    // addNewTask(event) {
+    //     console.log("add new task!!!");
+    //     this.setState({
+    //         showComponent: true
+    //     });
+    // }
 
     render() {
         return (
             <div>
                 <Header signout={this.props.signout} />
                 <Users users={this.props.users} signout={this.props.signout} />
-                <NewTask users={this.props.users} />
+                <NewTask users={this.props.users} addNewTask={this.props.addNewTask} />
                 <Tasks
                     users={this.props.users}
                     todos={this.props.todos}

@@ -71,6 +71,12 @@ class App extends Component {
         this.setState({ todos });
     };
 
+    addNewTask = event => {
+        console.log("addNewTask from app");
+        event.preventDefault();
+    };
+
+
     render() {
         return (
             <Router>
@@ -85,6 +91,7 @@ class App extends Component {
                             users={this.state.users}
                             todos={this.state.todos}
                             handleChange={this.handleChange}
+                            addNewTask={this.addNewTask}
                         />
                         <Route
                             exact
@@ -115,6 +122,7 @@ const PrivateRoute = ({
     users,
     todos,
     handleChange,
+    addNewTask,
     ...rest
 }) => {
     return (
@@ -128,6 +136,7 @@ const PrivateRoute = ({
                         users={users}
                         todos={todos}
                         handleChange={handleChange}
+                        addNewTask={addNewTask}
                     />
                 ) : (
                     <Redirect
