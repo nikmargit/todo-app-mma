@@ -7,7 +7,7 @@ class Tasks extends React.Component {
             <div>
                 <h1>Tasks!!!</h1>
                 <hr />
-                {this.props.todos.map(task => (
+                {this.props.todos.map((task, index) => (
                     <Task
                         key={task.id}
                         task={task}
@@ -15,6 +15,7 @@ class Tasks extends React.Component {
                         todos={this.props.todos}
                         handleChange={this.props.handleChange}
                         deleteTodo={this.props.deleteTodo}
+                        taskIndex={index}
                     />
                 ))}
             </div>

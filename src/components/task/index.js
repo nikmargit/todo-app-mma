@@ -37,11 +37,17 @@ class Task extends React.Component {
                     onChange={event => this.updateTask(event)}
                 >
                     {this.props.users.map(user => (
-                        <option value={user.id} key={user.id}>{user.name}</option>
+                        <option value={user.id} key={user.id}>
+                            {user.name}
+                        </option>
                     ))}
                     ))}
                 </select>
-                <button>Remove Task</button>
+                <button
+                    onClick={() => this.props.deleteTodo(this.props.taskIndex)}
+                >
+                    Remove Task
+                </button>
                 <hr />
             </div>
         ) : (

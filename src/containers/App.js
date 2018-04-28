@@ -77,8 +77,8 @@ class App extends Component {
     };
 
     deleteTodo = key => {
-        const todos = { ...this.state.todos };
-        todos[key] = null;
+        const todos = [...this.state.todos];
+        todos.splice(key, 1);
         this.setState({ todos });
     };
 
