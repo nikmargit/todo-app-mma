@@ -3,9 +3,8 @@ import React from "react";
 class Footer extends React.Component {
     render() {
         return (
-            <div>
-                <hr />
-                <p>2018</p>
+            <div className="sticky">
+                <p>&copy;  MMA team  {new Date().getFullYear()}</p>
             </div>
         );
     }
