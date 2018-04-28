@@ -8,14 +8,12 @@ import {
 
 import Login from "./login";
 import Home from "./home";
-import UserProfile from "./user-profile";
 
 const getLocalStorage = () => {
     const userString = window.localStorage.getItem("user");
 
     if (!userString) {
         const initialState = { isAuthenticated: false };
-        console.log(initialState);
 
         return initialState;
     } else {
@@ -26,7 +24,6 @@ const getLocalStorage = () => {
 
 class App extends Component {
     componentDidMount() {
-        console.log("app mounted!!!!");
         const url = `https://jsonplaceholder.typicode.com/users`;
         fetch(url)
             .then(response => response.json())
@@ -38,7 +35,6 @@ class App extends Component {
         fetch(url1)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 this.setState({ todos: data });
             });
     }
