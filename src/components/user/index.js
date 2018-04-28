@@ -19,7 +19,7 @@ class User extends React.Component {
                         "?" +
                         "d=monsterid" +
                         "&" +
-                        "s=30"
+                        "s=50"
                     }
                 />
                 <p>{this.user.username}</p>
