@@ -1,7 +1,5 @@
 import React from "react";
 import User from "../user";
-
-import { withRouter } from "react-router-dom";
 import UserProfile from "../../containers/user-profile";
 
 class Users extends React.Component {
@@ -48,4 +46,4 @@ class Users extends React.Component {
     }
 }
 
-export default withRouter(Users);
+export default Users;

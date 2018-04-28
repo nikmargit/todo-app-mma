@@ -64,7 +64,6 @@ class App extends Component {
     handleChange = (updatedTodo, key) => {
         const todos = [...this.state.todos];
         todos[key] = updatedTodo;
-        //console.log(todos);
 
         this.setState({ todos });
     };
@@ -108,11 +107,6 @@ class App extends Component {
                                     isAuthenticated={this.state.isAuthenticated}
                                 />
                             )}
-                        />
-                        <Route
-                            exact
-                            path="/user-profile"
-                            component={UserProfile}
                         />
                     </Switch>
                 </div>
