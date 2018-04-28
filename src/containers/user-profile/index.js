@@ -40,14 +40,13 @@ class UserProfile extends React.Component {
     };
 
     render() {
-        const user = this.props.location.state.users[
-            this.props.location.state.id - 1
-        ];
+        const user = this.props.users[this.props.id - 1];
 
         return user ? (
             <div>
                 <h1>Name: {user.name}</h1>
                 <p>Email: {user.email}</p>
+                <p>User Name: {user.username}</p>
                 <p>Company{user.company.name}</p>
                 <p>Phone{user.phone}</p>
                 <ul>
@@ -55,6 +54,7 @@ class UserProfile extends React.Component {
                         return <li key={task.id}>{task.title}</li>;
                     })}
                 </ul>
+                <button onClick={() => this.props.resetId()}>Back</button>
                 <Footer />
             </div>
         ) : (
