@@ -62,8 +62,6 @@ class App extends Component {
     };
 
     handleChange = (updatedTodo, key) => {
-        console.log(updatedTodo);
-
         const todos = [...this.state.todos];
         todos[key] = updatedTodo;
         //console.log(todos);
@@ -71,11 +69,18 @@ class App extends Component {
         this.setState({ todos });
     };
 
-    addNewTask = event => {
-        console.log("addNewTask from app");
-        event.preventDefault();
+    addNewTask = newTask => {
+        const index = this.state.todos.length;
+        newTask.id = this.state.todos[this.state.todos.length - 1].id + 1;
+        console.log(newTask);
+        this.handleChange(newTask, index);
     };
 
+    deleteTodo = key => {
+        const todos = { ...this.state.todos };
+        todos[key] = null;
+        this.setState({ todos });
+    };
 
     render() {
         return (
@@ -92,6 +97,7 @@ class App extends Component {
                             todos={this.state.todos}
                             handleChange={this.handleChange}
                             addNewTask={this.addNewTask}
+                            deleteTodo={this.deleteTodo}
                         />
                         <Route
                             exact
@@ -123,6 +129,7 @@ const PrivateRoute = ({
     todos,
     handleChange,
     addNewTask,
+    deleteTodo,
     ...rest
 }) => {
     return (
@@ -137,6 +144,7 @@ const PrivateRoute = ({
                         todos={todos}
                         handleChange={handleChange}
                         addNewTask={addNewTask}
+                        deleteTodo={deleteTodo}
                     />
                 ) : (
                     <Redirect
