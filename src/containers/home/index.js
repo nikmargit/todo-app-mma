@@ -10,7 +10,11 @@ class Home extends React.Component {
         return (
             <div>
                 <Header signout={this.props.signout} />
-                <Users users={this.props.users} signout={this.props.signout} />
+                <Users 
+                    users={this.props.users} 
+                    todos={this.props.todos} 
+                    signout={this.props.signout} 
+                />
                 <NewTask
                     users={this.props.users}
                     addNewTask={this.props.addNewTask}

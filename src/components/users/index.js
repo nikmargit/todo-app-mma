@@ -37,6 +37,7 @@ class Users extends React.Component {
                         <div className="popup_inner">
                             <UserProfile
                                 users={this.props.users}
+                                todos={this.props.todos}
                                 id={this.state.id}
                                 resetId={this.resetId}
                             />

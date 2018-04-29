@@ -47,7 +47,7 @@ class NewTask extends React.Component {
                         {/* <option disabled selected value> -- select a user -- </option> */}
                         {this.props.users.map(user => (
                             <option value={user.id} key={user.id}>
-                                {user.name}
+                                {user.username}
                             </option>
                         ))}
 

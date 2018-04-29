@@ -38,7 +38,7 @@ class Task extends React.Component {
                 >
                     {this.props.users.map(user => (
                         <option value={user.id} key={user.id}>
-                            {user.name}
+                            {user.username}
                         </option>
                     ))}
                     ))}
