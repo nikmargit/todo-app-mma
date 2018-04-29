@@ -2,6 +2,24 @@ import React from "react";
 
 class UserProfile extends React.Component {
 
+    _handleKeyDown = event => {
+        switch( event.keyCode ) {
+            case 27:
+                this.props.resetId();
+                break;
+            default: 
+                break;
+        }
+    }
+
+    componentWillMount(){
+        document.addEventListener("keydown", this._handleKeyDown.bind(this));
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this._handleKeyDown.bind(this));
+    }
+
     render() {
         const user = this.props.users[this.props.id - 1];
 
