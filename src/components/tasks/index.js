@@ -4,9 +4,7 @@ import Task from "../task";
 class Tasks extends React.Component {
     render() {
         return this.props.todos ? (
-            <div>
-                <h1>Tasks!!!</h1>
-                <hr />
+            <div className="tasks">
                 {this.props.todos.map((task, index) => (
                     <Task
                         key={task.id}

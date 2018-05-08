@@ -8,8 +8,8 @@ class User extends React.Component {
         return (
             <div
                 key={this.user.id}
-                style={{ margin: 10, float: "left" }}
                 onClick={() => this.props.userProfile(this.user.id)}
+                className="user"
             >
                 <img
                     alt={this.user.email}

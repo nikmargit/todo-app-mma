@@ -59,16 +59,23 @@ class App extends Component {
 
     handleChange = (updatedTodo, key) => {
         const todos = [...this.state.todos];
-        todos[key] = updatedTodo;
+        if (key > todos[todos.length - 1].id) {
+            todos.push(updatedTodo);
+        }
+        for (let i = 0; i < todos.length; i++) {
+            if (todos[i].id === key) {
+                todos[i] = updatedTodo;
+            }
+        }
 
         this.setState({ todos });
     };
 
     addNewTask = newTask => {
-        const index = this.state.todos.length;
+        //const index = this.state.todos.length;
         newTask.id = this.state.todos[this.state.todos.length - 1].id + 1;
         console.log(newTask);
-        this.handleChange(newTask, index);
+        this.handleChange(newTask, newTask.id);
     };
 
     deleteTodo = key => {

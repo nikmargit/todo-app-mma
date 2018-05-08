@@ -10,7 +10,7 @@ class Task extends React.Component {
                     : event.currentTarget.value
         };
 
-        this.props.handleChange(updatedTask, this.props.task.id - 1);
+        this.props.handleChange(updatedTask, this.props.task.id);
     };
 
     render() {
@@ -18,6 +18,7 @@ class Task extends React.Component {
             <div
                 key={this.props.todos.id}
                 style={{ margin: 10, clear: "both" }}
+                className="task"
             >
                 <input
                     name="completed"
@@ -48,7 +49,6 @@ class Task extends React.Component {
                 >
                     Remove Task
                 </button>
-                <hr />
             </div>
         ) : (
             <p />

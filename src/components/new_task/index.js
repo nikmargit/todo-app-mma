@@ -31,7 +31,6 @@ class NewTask extends React.Component {
             <div style={{ margin: 10, clear: "both" }}>
                 <hr />
                 <form onSubmit={this.submitNewTask}>
-                    <input name="completed" type="checkbox" />
                     <textarea
                         name="title"
                         // ref={text => (this.title = text)}
