@@ -1,6 +1,10 @@
 import React from "react";
 
 class Task extends React.Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.task !== this.props.task;
+    }
+
     updateTask = event => {
         let updatedTask = {
             ...this.props.task,

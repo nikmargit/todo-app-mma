@@ -55,7 +55,9 @@ class Login extends React.Component {
                     <button type="submit">Log In</button>
                 </form>
                 {this.state.showMessage && (
-                    <p>Wrong email or password! Try again!</p>
+                    <p className="invalid-msg">
+                        Wrong email or password! Try again!
+                    </p>
                 )}
             </div>
         );
