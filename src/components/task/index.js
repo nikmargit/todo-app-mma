@@ -19,17 +19,17 @@ class Task extends React.Component {
 
     render() {
         return this.props.users && this.props.todos ? (
-            <div
-                key={this.props.todos.id}
-                style={{ margin: 10, clear: "both" }}
-                className="task"
-            >
-                <input
-                    name="completed"
-                    type="checkbox"
-                    defaultChecked={this.props.task.completed}
-                    onChange={event => this.updateTask(event)}
-                />
+            <div key={this.props.todos.id} className="task">
+                <div className="input-checkbox">
+                    <input
+                        id={this.props.todos.id}
+                        name="completed"
+                        type="checkbox"
+                        defaultChecked={this.props.task.completed}
+                        onChange={event => this.updateTask(event)}
+                    />
+                    <label htmlFor={this.props.todos.id}>Mark completed</label>
+                </div>
                 <textarea
                     name="title"
                     value={this.props.task.title}

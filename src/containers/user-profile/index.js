@@ -34,7 +34,7 @@ class UserProfile extends React.Component {
                     {this.props.todos
                         .filter(
                             todo =>
-                                todo.userId == user.id &&
+                                todo.userId * 1 === user.id &&
                                 todo.completed === false
                         )
                         .map(todo => {

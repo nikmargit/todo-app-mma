@@ -30,7 +30,6 @@ class NewTask extends React.Component {
         return this.props.users ? (
             <div className="new-task">
                 <form onSubmit={this.submitNewTask}>
-                    <h2>Add a new task</h2>
                     <textarea
                         name="title"
                         // ref={text => (this.title = text)}
@@ -52,7 +51,7 @@ class NewTask extends React.Component {
 
                         {/* ref={user => (this.userId = user.id)} */}
                     </select>
-                    <button type="submit">&#10004;</button>
+                    <button type="submit">Add a new task &#10004;</button>
                 </form>
             </div>
         ) : null;
