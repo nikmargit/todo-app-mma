@@ -10,21 +10,23 @@ class Home extends React.Component {
         return (
             <div>
                 <Header signout={this.props.signout} />
-                <Users 
-                    users={this.props.users} 
-                    todos={this.props.todos} 
-                    signout={this.props.signout} 
-                />
-                <NewTask
-                    users={this.props.users}
-                    addNewTask={this.props.addNewTask}
-                />
-                <Tasks
+                <Users
                     users={this.props.users}
                     todos={this.props.todos}
-                    handleChange={this.props.handleChange}
-                    deleteTodo={this.props.deleteTodo}
+                    signout={this.props.signout}
                 />
+                <div className="tasks-container">
+                    <NewTask
+                        users={this.props.users}
+                        addNewTask={this.props.addNewTask}
+                    />
+                    <Tasks
+                        users={this.props.users}
+                        todos={this.props.todos}
+                        handleChange={this.props.handleChange}
+                        deleteTodo={this.props.deleteTodo}
+                    />
+                </div>
                 <Footer />
             </div>
         );
