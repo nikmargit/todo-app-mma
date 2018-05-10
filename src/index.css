@@ -175,17 +175,53 @@ textarea {
     right: 0;
     bottom: 0;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.55);
 }
 
 .popup_inner {
     position: absolute;
-    left: 25%;
-    right: 25%;
+    left: 27%;
+    right: 27%;
     top: 15%;
-    bottom: 15%;
+    /* bottom: 15%; */
     margin: auto;
     background: white;
+    border-radius: 5px;
+}
+
+.popup_inner h1 {
+    color: #298fca;
+    font-size: 1.53em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.pop-info {
+    background-color: #51e898;
+    padding: 25px 25px 20px 25px;
+}
+
+.pop-company {
+    color: #ffab4a;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.pop-email,
+.pop-user-name,
+.pop-phone {
+    font-size: 0.9rem;
+    color: #42464b;
+    margin-bottom: 3px;
+}
+
+.pop-tasks-container {
+    background-color: #d3f6e4;
+    padding: 20px 25px 25px 25px;
+}
+
+.pop-tasks {
+    color: #298fca;
 }
 
 /*LOG IN PAGE*/
