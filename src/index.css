@@ -129,6 +129,8 @@ textarea {
     resize: none;
 }
 
+/*HEADER FOOTER*/
+
 .sticky {
     position: fixed;
     bottom: 0;
@@ -173,6 +175,7 @@ textarea {
     bottom: 0;
     margin: auto;
     background-color: rgba(0, 0, 0, 0.55);
+    z-index: 50;
 }
 
 .popup_inner {
@@ -184,6 +187,7 @@ textarea {
     margin: auto;
     background: white;
     border-radius: 5px;
+    z-index: 100;
 }
 
 .popup_inner h1 {
