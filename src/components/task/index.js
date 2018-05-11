@@ -51,12 +51,15 @@ class Task extends React.Component {
                 <button
                     onClick={() => this.props.deleteTodo(this.props.taskIndex)}
                 >
-                    X
+                    <span>
+                        X
+    
+                </span>
                 </button>
             </div>
         ) : (
-            <p />
-        );
+                <p />
+            );
     }
 }
 
