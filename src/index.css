@@ -108,10 +108,7 @@ section {
 body {
     line-height: 1;
 }
-ol,
-ul {
-    list-style: none;
-}
+
 blockquote,
 q {
     quotes: none;
@@ -192,13 +189,13 @@ textarea {
 .popup_inner h1 {
     color: #298fca;
     font-size: 1.53em;
-    font-weight: bold;
+    font-weight: 300;
     margin-bottom: 5px;
 }
 
 .pop-info {
     background-color: #51e898;
-    padding: 25px 25px 20px 25px;
+    padding: 25px 25px 15px 25px;
 }
 
 .pop-company {
@@ -217,11 +214,43 @@ textarea {
 
 .pop-tasks-container {
     background-color: #d3f6e4;
-    padding: 20px 25px 25px 25px;
+    padding: 10px 25px 25px 25px;
 }
 
 .pop-tasks {
+    font-size: 1.2rem !important;
     color: #298fca;
+    font-size: 1.53em;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.pop-tasks-container ol {
+    list-style: decimal;
+    font-style:italic;
+    margin-left: 15px;
+}
+
+.pop-tasks-container ol p {
+    padding:3px;
+    font-style:normal;
+    font-family:Arial;
+    color: #36454F;
+    border-bottom: 1px solid #298fca;
+}
+
+.popup_inner button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    justify-self: end;
+    padding: 3px;
+    margin-right: 5px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    border: none;
+    background-color: transparent;
+    color: #eb5a46;
 }
 
 /*LOG IN PAGE*/

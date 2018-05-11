@@ -32,8 +32,8 @@ class UserProfile extends React.Component {
                     <p className="pop-phone">Phone: {user.phone}</p>
                 </div>
                 <div className="pop-tasks-container">
-                    <p className="pop-tasks">Tasks:</p>
-                    <ul>
+                    <p className="pop-tasks">Active Tasks:</p>
+                    <ol>
                         {this.props.todos
                             .filter(
                                 todo =>
@@ -41,15 +41,18 @@ class UserProfile extends React.Component {
                                     todo.completed === false
                             )
                             .map(todo => {
-                                return <li key={todo.id}>- {todo.title}</li>;
+                                return (
+                                    <p key={todo.id}>
+                                        <li key={todo.id}>{todo.title}</li>
+                                    </p>)
                             })}
-                    </ul>
+                    </ol>
                 </div>
-                <button onClick={() => this.props.resetId()}>Back</button>
+                <button onClick={() => this.props.resetId()}>X</button>
             </div>
         ) : (
-            <p>Sorry, try again later.</p>
-        );
+                <p>Sorry, try again later.</p>
+            );
     }
 }
 
