@@ -381,6 +381,10 @@ textarea {
     grid-area: c;
 }
 
+.tasks-container .tasks .task .input-checkbox .check {
+    cursor: url(touch.png), pointer;
+}
+
 .tasks-container .tasks .task .input-checkbox label {
     margin-left: 3px;
 }
@@ -394,6 +398,7 @@ textarea {
     background-color: #298fca;
     color: white;
     grid-area: s;
+    cursor: url(arrow.png), pointer;
 }
 
 .tasks-container .tasks .task button {
@@ -451,6 +456,7 @@ textarea {
     margin: auto;
     width: 50%;
     float: left;
+    cursor: url(arrow.png), pointer;
 }
 
 .tasks-container .new-task button {
@@ -531,4 +537,5 @@ textarea {
     margin: 0px auto 8px auto;
     border-radius: 40px;
     width: 60px;
+    cursor: url(about.png), pointer;
 }

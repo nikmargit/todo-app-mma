@@ -22,6 +22,7 @@ class Task extends React.Component {
             <div key={this.props.todos.id} className="task">
                 <div className="input-checkbox">
                     <input
+                        className="check"
                         id={this.props.todos.id}
                         name="completed"
                         type="checkbox"
